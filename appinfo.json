@@ -1,0 +1,76 @@
+{
+  "uuid": "3eb78962-3109-40a2-bf02-06092733b228",
+  "shortName": "pdc-transform-test",
+  "longName": "pdc-transform-test",
+  "companyName": "Christian Reinbacher",
+  "versionCode": 1,
+  "versionLabel": "1.0",
+  "sdkVersion": "3",
+  "targetPlatforms": ["aplite", "basalt", "chalk"],
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": [
+      {
+        "type": "raw",
+        "name": "DRAW_COMMAND1",
+        "file": "commands/image1.pdc"
+      },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND2",
+              "file": "commands/image2.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND3",
+              "file": "commands/image3.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND4",
+              "file": "commands/image4.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND5",
+              "file": "commands/image5.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND6",
+              "file": "commands/image6.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND7",
+              "file": "commands/image7.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND8",
+              "file": "commands/image8.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND9",
+              "file": "commands/image9.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND10",
+              "file": "commands/image10.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND11",
+              "file": "commands/image11.pdc"
+              }
+              
+    ]
+  }
+}

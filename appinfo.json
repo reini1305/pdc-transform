@@ -69,8 +69,272 @@
               "type": "raw",
               "name": "DRAW_COMMAND11",
               "file": "commands/image11.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND12",
+              "file": "commands/image12.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND13",
+              "file": "commands/image13.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND14",
+              "file": "commands/image14.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND15",
+              "file": "commands/image15.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND16",
+              "file": "commands/image16.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND17",
+              "file": "commands/image17.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND18",
+              "file": "commands/image18.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND19",
+              "file": "commands/image19.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND20",
+              "file": "commands/image20.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND21",
+              "file": "commands/image21.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND22",
+              "file": "commands/image22.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND23",
+              "file": "commands/image23.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND24",
+              "file": "commands/image24.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND25",
+              "file": "commands/image25.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND26",
+              "file": "commands/image26.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND27",
+              "file": "commands/image27.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND28",
+              "file": "commands/image28.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND29",
+              "file": "commands/image29.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND30",
+              "file": "commands/image30.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND31",
+              "file": "commands/image31.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND32",
+              "file": "commands/image32.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND33",
+              "file": "commands/image33.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND34",
+              "file": "commands/image34.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND35",
+              "file": "commands/image35.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND36",
+              "file": "commands/image36.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND37",
+              "file": "commands/image37.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND38",
+              "file": "commands/image38.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND39",
+              "file": "commands/image39.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND40",
+              "file": "commands/image40.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND41",
+              "file": "commands/image41.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND42",
+              "file": "commands/image42.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND43",
+              "file": "commands/image43.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND44",
+              "file": "commands/image44.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND45",
+              "file": "commands/image45.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND46",
+              "file": "commands/image46.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND47",
+              "file": "commands/image47.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND48",
+              "file": "commands/image48.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND49",
+              "file": "commands/image49.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND50",
+              "file": "commands/image50.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND51",
+              "file": "commands/image51.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND52",
+              "file": "commands/image52.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND53",
+              "file": "commands/image53.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND54",
+              "file": "commands/image54.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND55",
+              "file": "commands/image55.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND56",
+              "file": "commands/image56.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND57",
+              "file": "commands/image57.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND58",
+              "file": "commands/image58.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND59",
+              "file": "commands/image59.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND60",
+              "file": "commands/image60.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND61",
+              "file": "commands/image61.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND62",
+              "file": "commands/image62.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND63",
+              "file": "commands/image63.pdc"
+              },
+              {
+              "type": "raw",
+              "name": "DRAW_COMMAND64",
+              "file": "commands/image64.pdc"
               }
-              
     ]
   }
 }

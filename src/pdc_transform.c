@@ -10,11 +10,18 @@ typedef struct similarity_transform_data {
 }similarity_transform_data;
 
 bool prv_similarity_iterator(GDrawCommand *command,uint32_t index, void* context) {
-  uint16_t num_points = gdraw_command_get_num_points(command);
+  // get transformation data
   similarity_transform_data *data = (similarity_transform_data*) context;
-  GPoint temp_point;
+
+  // scale stroke width
+  gdraw_command_set_stroke_width(command,gdraw_command_get_stroke_width(command)*data->scale10/10);
+
+  // GDrawCommandTypePrecisePath has to be treated differently
   GDrawCommandType type = gdraw_command_get_type(command);
   int scale_factor = (type==GDrawCommandTypePrecisePath)? 8:1;
+
+  GPoint temp_point;
+  uint16_t num_points = gdraw_command_get_num_points(command);
   for(uint16_t i=0;i<num_points;i++) {
     temp_point = gdraw_command_get_point(command,i);
     // rotation around point
@@ -30,7 +37,7 @@ bool prv_similarity_iterator(GDrawCommand *command,uint32_t index, void* context
   return true;
 }
 
-void prv_gdraw_command_list_draw_similarity(GContext * ctx, GDrawCommandList * list,
+void prv_gdraw_command_list_draw_transformed(GContext * ctx, GDrawCommandList * list,
                                                GPoint offset, int scale10, GPoint rotation_offset, int rotation) {
   const int32_t angle = DEG_TO_TRIGANGLE(rotation);
   similarity_transform_data data = {
@@ -44,13 +51,13 @@ void prv_gdraw_command_list_draw_similarity(GContext * ctx, GDrawCommandList * l
   gdraw_command_list_draw(ctx,list);
 }
 
-void gdraw_command_image_draw_similarity(GContext * ctx, GDrawCommandImage * image,
+void gdraw_command_image_draw_transformed(GContext * ctx, GDrawCommandImage * image,
                                      GPoint offset, int scale10, int rotation) {
   GDrawCommandImage *temp_image = gdraw_command_image_clone(image);
   GDrawCommandList *list = gdraw_command_image_get_command_list(temp_image);
   GSize img_size = gdraw_command_image_get_bounds_size(temp_image);
   GPoint rotation_offset = { .x= img_size.w/2,.y=img_size.h/2};
 //  GPoint rotation_offset = { .x= 0,.y=0};
-  prv_gdraw_command_list_draw_similarity(ctx,list,offset,scale10,rotation_offset,rotation);
+  prv_gdraw_command_list_draw_transformed(ctx,list,offset,scale10,rotation_offset,rotation);
   gdraw_command_image_destroy(temp_image);
 }

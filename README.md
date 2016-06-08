@@ -16,7 +16,7 @@ Adds rotation and scale to PDC drawing commands on Pebble, by defining a functio
 #include <pdc-transform/pdc-transform.h>
 ```
 
-*The function will make a copy of the `GDrawCommandImage` internally such as to leave your original unharmed. This repository contains a sample app that cycles through 64 standard PDCs provided by Pebble and shows what can be created using this little library.
+* The function will make a copy of the `GDrawCommandImage` internally such as to leave your original unharmed. This repository contains a sample app that cycles through 64 standard PDCs provided by Pebble and shows what can be created using this little library.
 
 ![screenshot](screenshots/animation.gif)
 

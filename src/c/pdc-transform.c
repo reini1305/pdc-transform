@@ -1,5 +1,5 @@
 #include <pebble.h>
-#include "pdc_transform.h"
+#include "pdc-transform.h"
 
 typedef struct similarity_transform_data {
   GPoint offset;
@@ -9,7 +9,7 @@ typedef struct similarity_transform_data {
   GPoint rotation_offset;
 }similarity_transform_data;
 
-bool prv_similarity_iterator(GDrawCommand *command,uint32_t index, void* context) {
+static bool prv_similarity_iterator(GDrawCommand *command,uint32_t index, void* context) {
   // get transformation data
   similarity_transform_data *data = (similarity_transform_data*) context;
 
@@ -37,7 +37,7 @@ bool prv_similarity_iterator(GDrawCommand *command,uint32_t index, void* context
   return true;
 }
 
-void prv_gdraw_command_list_draw_transformed(GContext * ctx, GDrawCommandList * list,
+static void prv_gdraw_command_list_draw_transformed(GContext * ctx, GDrawCommandList * list,
                                                GPoint offset, int scale10, GPoint rotation_offset, int rotation) {
   const int32_t angle = DEG_TO_TRIGANGLE(rotation);
   similarity_transform_data data = {
@@ -51,7 +51,7 @@ void prv_gdraw_command_list_draw_transformed(GContext * ctx, GDrawCommandList * 
   gdraw_command_list_draw(ctx,list);
 }
 
-void gdraw_command_image_draw_transformed(GContext * ctx, GDrawCommandImage * image,
+void pdc_transform_gdraw_command_image_draw_transformed(GContext * ctx, GDrawCommandImage * image,
                                      GPoint offset, int scale10, int rotation) {
   GDrawCommandImage *temp_image = gdraw_command_image_clone(image);
   GDrawCommandList *list = gdraw_command_image_get_command_list(temp_image);

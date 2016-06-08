@@ -4,7 +4,7 @@
  */
 
 #include <pebble.h>
-#include "pdc_transform.h"
+#include <pdc-transform/pdc-transform.h>
 #define NUM_IMAGES 64
 static Window *s_main_window;
 static Layer *s_canvas_layer;
@@ -48,7 +48,7 @@ static void update_proc(Layer *layer, GContext *ctx) {
   // If the image was loaded successfully...
   if (s_command_image) {
     // Draw it
-    gdraw_command_image_draw_transformed(ctx, s_command_image, grect_inset(bounds, frame_insets).origin,s_scale,s_angle);
+    pdc_transform_gdraw_command_image_draw_transformed(ctx, s_command_image, grect_inset(bounds, frame_insets).origin,s_scale,s_angle);
   }
 }
 

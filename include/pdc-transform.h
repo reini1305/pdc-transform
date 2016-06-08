@@ -8,5 +8,5 @@
 // rotation: rotation in degrees around the center of the image
 // offset: translation of left upper corner of the image
 
-void gdraw_command_image_draw_transformed(GContext * ctx, GDrawCommandImage * image, GPoint offset, int scale10, int rotation);
+void pdc_transform_gdraw_command_image_draw_transformed(GContext * ctx, GDrawCommandImage * image, GPoint offset, int scale10, int rotation);
 #endif // PDC_TRANSFORM_H

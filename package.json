@@ -1,10 +1,13 @@
 {
   "name": "pdc-transform",
-  "author": "MakeAwesomeHappen",
+  "author": "Christian Reinbacher",
   "version": "1.0.0",
   "files": ["dist.zip"],
   "keywords": ["pebble-package"],
   "dependencies": {},
+  "repository": "reini1305/pdc-transform",
+  "license": "MIT",
+  "description": "Adds rotation and scale to PDC drawing commands on Pebble. In addition to the standard gdraw_command_image_draw this allows to specify a rotation and scale.",
   "pebble": {
     "projectType": "package",
     "sdkVersion": "3",

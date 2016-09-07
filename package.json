@@ -1,7 +1,7 @@
 {
   "name": "pdc-transform",
   "author": "Christian Reinbacher",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "files": ["dist.zip"],
   "keywords": ["pebble-package"],
   "dependencies": {},
@@ -14,7 +14,8 @@
     "targetPlatforms": [
       "aplite",
       "basalt",
-      "chalk"
+      "chalk",
+      "diorite"
     ],
     "resources": {
       "media": []

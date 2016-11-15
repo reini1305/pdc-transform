@@ -44,16 +44,16 @@ static void update_proc(Layer *layer, GContext *ctx) {
     .top = (bounds.size.h - img_size.h) / 2 ,
     .left = (bounds.size.w - img_size.w) / 2
   };
-
+  graphics_context_set_fill_color(ctx,GColorPictonBlue);
   // If the image was loaded successfully...
   if (s_command_image) {
     // Draw it
-    pdc_transform_gdraw_command_image_draw_transformed(ctx, s_command_image, grect_inset(bounds, frame_insets).origin,s_scale,s_angle);
+    pdc_transform_gdraw_command_image_draw_transformed(ctx, s_command_image, grect_inset(bounds, frame_insets).origin,s_scale,s_angle,GColorPictonBlue,GColorBlack);
   }
 }
 
 static void change_sequence(int delta) {
-  
+
   // Load the next resource
   image_id += delta;
   if(image_id > NUM_IMAGES) {

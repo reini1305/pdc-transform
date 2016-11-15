@@ -7,6 +7,8 @@ typedef struct similarity_transform_data {
   int32_t c;
   int32_t s;
   GPoint rotation_offset;
+  GColor fill_color;
+  GColor stroke_color;
 }similarity_transform_data;
 
 static bool prv_similarity_iterator(GDrawCommand *command,uint32_t index, void* context) {
@@ -15,6 +17,8 @@ static bool prv_similarity_iterator(GDrawCommand *command,uint32_t index, void* 
 
   // scale stroke width
   gdraw_command_set_stroke_width(command,gdraw_command_get_stroke_width(command)*data->scale10/10);
+  gdraw_command_set_stroke_color(command,data->stroke_color);
+  gdraw_command_set_fill_color(command,data->fill_color);
 
   // GDrawCommandTypePrecisePath has to be treated differently
   GDrawCommandType type = gdraw_command_get_type(command);
@@ -38,26 +42,29 @@ static bool prv_similarity_iterator(GDrawCommand *command,uint32_t index, void* 
 }
 
 static void prv_gdraw_command_list_draw_transformed(GContext * ctx, GDrawCommandList * list,
-                                               GPoint offset, int scale10, GPoint rotation_offset, int rotation) {
+                                               GPoint offset, int scale10, GPoint rotation_offset, int rotation, GColor fill_color, GColor stroke_color) {
   const int32_t angle = DEG_TO_TRIGANGLE(rotation);
   similarity_transform_data data = {
     .scale10 = scale10,
     .offset = offset,
     .c = cos_lookup(angle),
     .s = sin_lookup(angle),
-    .rotation_offset = rotation_offset
+    .rotation_offset = rotation_offset,
+    .fill_color = fill_color,
+    .stroke_color = stroke_color
   };
   gdraw_command_list_iterate(list,prv_similarity_iterator,(void*)&data);
   gdraw_command_list_draw(ctx,list);
 }
 
 void pdc_transform_gdraw_command_image_draw_transformed(GContext * ctx, GDrawCommandImage * image,
-                                     GPoint offset, int scale10, int rotation) {
+                                     GPoint offset, int scale10, int rotation,
+                                     GColor fill_color, GColor stroke_color) {
   GDrawCommandImage *temp_image = gdraw_command_image_clone(image);
   GDrawCommandList *list = gdraw_command_image_get_command_list(temp_image);
   GSize img_size = gdraw_command_image_get_bounds_size(temp_image);
   GPoint rotation_offset = { .x= img_size.w/2,.y=img_size.h/2};
 //  GPoint rotation_offset = { .x= 0,.y=0};
-  prv_gdraw_command_list_draw_transformed(ctx,list,offset,scale10,rotation_offset,rotation);
+  prv_gdraw_command_list_draw_transformed(ctx,list,offset,scale10,rotation_offset,rotation,fill_color,stroke_color);
   gdraw_command_image_destroy(temp_image);
 }

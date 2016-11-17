@@ -7,10 +7,20 @@ typedef struct similarity_transform_data {
   int32_t c;
   int32_t s;
   GPoint rotation_offset;
-  GColor fill_color;
-  GColor stroke_color;
   int custom_stroke_width;
 }similarity_transform_data;
+
+typedef struct recolor_data {
+    GColor fill_color;
+    GColor stroke_color;
+} recolor_data;
+
+static bool prv_recolor_iterator(GDrawCommand *command, uint32_t index, void *context) {
+    recolor_data *data = (recolor_data *) context;
+    gdraw_command_set_stroke_color(command, data->stroke_color);
+    gdraw_command_set_fill_color(command, data->fill_color);
+    return true;
+}
 
 static bool prv_similarity_iterator(GDrawCommand *command,uint32_t index, void* context) {
   // get transformation data
@@ -26,8 +36,6 @@ static bool prv_similarity_iterator(GDrawCommand *command,uint32_t index, void* 
   {
     gdraw_command_set_stroke_width(command,gdraw_command_get_stroke_width(command)*data->scale10/10);
   }
-  gdraw_command_set_stroke_color(command,data->stroke_color);
-  gdraw_command_set_fill_color(command,data->fill_color);
 
   // GDrawCommandTypePrecisePath has to be treated differently
   GDrawCommandType type = gdraw_command_get_type(command);
@@ -59,11 +67,16 @@ static void prv_gdraw_command_list_draw_transformed(GContext * ctx, GDrawCommand
     .c = cos_lookup(angle),
     .s = sin_lookup(angle),
     .rotation_offset = rotation_offset,
-    .fill_color = fill_color,
-    .stroke_color = stroke_color,
     .custom_stroke_width = custom_stroke_width
   };
   gdraw_command_list_iterate(list,prv_similarity_iterator,(void*)&data);
+
+  recolor_data rd = {
+    .fill_color = fill_color,
+    .stroke_color = stroke_color
+  };
+  gdraw_command_list_iterate(list,prv_recolor_iterator,(void*)&rd);
+
   gdraw_command_list_draw(ctx,list);
 }
 
@@ -79,3 +92,45 @@ void pdc_transform_gdraw_command_image_draw_transformed(GContext * ctx, GDrawCom
   gdraw_command_image_destroy(temp_image);
 }
 
+void pdc_transform_scale_image(GDrawCommandImage * image, int scale10) {
+  similarity_transform_data data = {
+    .scale10 = scale10,
+    .offset = GPointZero,
+    .c = cos_lookup(0),
+    .s = sin_lookup(0),
+    .rotation_offset = GPointZero,
+    .custom_stroke_width = 0
+  };
+  GDrawCommandList *list = gdraw_command_image_get_command_list(image);
+  gdraw_command_list_iterate(list,prv_similarity_iterator,(void*)&data);
+
+  GSize img_size = gdraw_command_image_get_bounds_size(image);
+  img_size.w = (img_size.w * scale10) / 10;
+  img_size.h = (img_size.h * scale10) / 10;
+  gdraw_command_image_set_bounds_size(image, img_size);
+}
+
+void pdc_transform_rotate_image(GDrawCommandImage * image, int rotation) {
+  const int32_t angle = DEG_TO_TRIGANGLE(rotation);
+  GSize img_size = gdraw_command_image_get_bounds_size(image);
+  GPoint rotation_offset = { .x= img_size.w/2,.y=img_size.h/2};
+  similarity_transform_data data = {
+    .scale10 = 10,
+    .offset = GPointZero,
+    .c = cos_lookup(angle),
+    .s = sin_lookup(angle),
+    .rotation_offset = rotation_offset,
+    .custom_stroke_width = 0
+  };
+  GDrawCommandList *list = gdraw_command_image_get_command_list(image);
+  gdraw_command_list_iterate(list,prv_similarity_iterator,(void*)&data);
+}
+
+void pdc_transform_recolor_image(GDrawCommandImage * image, GColor fill_color, GColor stroke_color) {
+  recolor_data data = {
+    .fill_color = fill_color,
+    .stroke_color = stroke_color
+  };
+  GDrawCommandList *list = gdraw_command_image_get_command_list(image);
+  gdraw_command_list_iterate(list,prv_recolor_iterator,(void*)&data);
+}

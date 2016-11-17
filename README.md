@@ -14,6 +14,12 @@ Adds rotation and scale to PDC drawing commands on Pebble, by defining a functio
 
 `stroke_width`: override the default stroke width in the PDC (=0 to use the standard one)
 
+`void pdc_transform_scale_image(GDrawCommandImage * image, int scale10);`
+
+`void pdc_transform_rotate_image(GDrawCommandImage * image, int rotation);`
+
+`void pdc_transform_recolor_image(GDrawCommandImage * image, GColor fill_color, GColor stroke_color);`
+
 ## Usage
 * Run `pebble package install pdc-transform`.
 * Include the library in any C files that will use it:
@@ -22,7 +28,11 @@ Adds rotation and scale to PDC drawing commands on Pebble, by defining a functio
 #include <pdc-transform/pdc-transform.h>
 ```
 
-* The function will make a copy of the `GDrawCommandImage` internally such as to leave your original unharmed. This repository contains a sample app that cycles through 64 standard PDCs provided by Pebble and shows what can be created using this little library.
+* `pdc_transform_gdraw_command_image_draw_transformed` will make a copy of the `GDrawCommandImage` internally such as to leave your original unharmed.
+
+* The other functions _will_ modify the passed in `GDrawCommandImage`.
+
+* This repository contains a sample app that cycles through 64 standard PDCs provided by Pebble and shows what can be created using this little library.
 
 ![screenshot](screenshots/animation.gif)
 

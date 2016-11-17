@@ -3,7 +3,7 @@
   "author": "Christian Reinbacher",
   "private": true,
   "dependencies": {
-    "pdc-transform": "^2.0.0"
+    "pdc-transform": "^2.0.4"
   },
   "keywords": [
     "pebble-app"
@@ -349,7 +349,9 @@
     "targetPlatforms": [
       "aplite",
       "basalt",
-      "chalk"
+      "chalk",
+      "diorite",
+      "emery"
     ],
     "capabilities": []
   },
